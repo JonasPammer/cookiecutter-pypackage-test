@@ -1,0 +1,8 @@
+covdefaults
+coverage
+cruft
+pre-commit
+pytest
+pytest-env
+
+tox

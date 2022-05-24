@@ -1,0 +1,41 @@
+= CookieCutter Python Package Test
+Jonas Pammer <opensource@jonaspammer.at>;
+
+https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml/badge.svg[Docker Workflow Status]]
+
+ifdef::env-github[]
+https://hub.docker.com/repository/docker/jonaspammer/cookiecutter-pypackage-test[image:https://img.shields.io/badge/Link_to-Docker_Hub-blue[]
+endif::[]
+
+This image can be used to run
+https://github.com/JonasPammer/cookiecutter-pypackage-test[cookiecutter-pypackage-test].
+
+
+== Run
+:base_command: docker run --rm -it jonaspammer/cookiecutter-pypackage-test
+
+.Running the latest release
+[subs="quotes,attributes"]
+----
+{base_command} *[--help | ...]*
+----
+
+.Running a given release
+[subs="quotes,attributes"]
+----
+{base_command}:v1.0 *[--help | ...]*
+----
+
+.Running the latest development version (https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml/badge.svg[CI Status]])
+[subs="quotes,attributes"]
+----
+{base_command}:master *[--help | ...]*
+----
+
+=== Tags
+
+
+
+== Source Repository
+
+https://github.com/JonasPammer/cookiecutter-pypackage-test

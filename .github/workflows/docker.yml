@@ -1,0 +1,129 @@
+name: Docker Image Build / Scan / Sync
+
+"on":
+  push:
+    branches:
+      - "**"
+      - "!dependabot*"
+      - "!pre-commit*"
+    tags:
+      - "v*"
+    paths:
+      - ".github/workflows/docker.yml"
+      - ".dockerignore"
+      - "Dockerfile"
+      # as per .dockerignore:
+      - "setup.cfg"
+      - "setup.py"
+      - "LICENSE"
+      - "test_application/**"
+  pull_request:
+    branches:
+      - "main"
+      - "master"
+
+jobs:
+  dockerhub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      # https://github.com/docker/metadata-action#semver
+      - name: Extract Metadata from Git references (used for tagging the Docker image).
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            jonaspammer/cookiecutter-pypackage-test
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha
+
+      - name: set up qemu for docker
+        uses: docker/setup-qemu-action@v2
+
+      - name: set up docker buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: login to dockerhub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          username: "jonaspammer"
+          password: "${{ secrets.DOCKERHUB_TOKEN }}"
+
+      - name: Build Dockerfile and push.
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  trivy-security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      - name: set up qemu for docker
+        uses: docker/setup-qemu-action@v2
+
+      - name: set up docker buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Dockerfile.
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: false
+          load: true
+          tags: "jonaspammer/cookiecutter-pypackage-test:local"
+
+      - name: Run Trivy vulnerability scanner on built Image.
+        uses: aquasecurity/trivy-action@0.2.5
+        with:
+          image-ref: "jonaspammer/cookiecutter-pypackage-test:local"
+          format: table
+          exit-code: "1"
+          # relevant read: https://pythonspeed.com/articles/docker-security-scanner/
+          ignore-unfixed: true
+          vuln-type: "os,library"
+          severity: "CRITICAL,HIGH"
+
+  dockerhub-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7.0"
+
+      - name: install asciidoctor
+        run: gem install --no-document asciidoctor rouge coderay
+
+      - name: Convert README_DOCKER.adoc to README-DOCKER.xml using Asciidoctor.
+        run: asciidoctor -b docbook README_DOCKER.adoc
+
+      # https://github.com/pandoc/pandoc-action-example
+      - name: Convert README_DOCKER.xml to README.md using Pandoc.
+        uses: docker://pandoc/core:2.18
+        with:
+          args: "-f docbook -t markdown_strict README_DOCKER.xml -o README.md"
+
+      # https://github.com/docker/build-push-action/issues/21
+      - name: Sync README.md to DockerHub.
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: "jonaspammer"
+          password: "${{ secrets.DOCKERHUB_PASSWORD }}"
+          repository: "jonaspammer/cookiecutter-pypackage-test"

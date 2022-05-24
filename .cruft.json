@@ -1,0 +1,24 @@
+{
+  "template": "https://github.com/JonasPammer/cookiecutter-pypackage.git",
+  "commit": "39b9864425e3d7a8df9b09edef917c4117d41632",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Jonas Pammer",
+      "email": "opensource@jonaspammer.at",
+      "github_username": "JonasPammer",
+      "code_of_conduct_enforcement_contact_email": "opensource@jonaspammer.at",
+      "project_name": "CookieCutter Python Package Test",
+      "project_slug": "cookiecutter-pypackage-test",
+      "pkg_name": "test_application",
+      "project_short_description": "do random stuff",
+      "dockerhub_username": "jonaspammer",
+      "pypi_username": "JonasPammer",
+      "will_be_uploaded_to_pypi": "y",
+      "command_line_interface": "Click",
+      "use_pytest": "y",
+      "_template": "https://github.com/JonasPammer/cookiecutter-pypackage.git"
+    }
+  },
+  "directory": null
+}

@@ -54,12 +54,23 @@ jobs:
           path: ~/.cache/pre-commit
           key: ${{ hashFiles('.pre-commit-config.yaml') }}
 
+      - name: setup/activate project-venv cache
+        uses: actions/cache@v3
+        with:
+          path: project-venv
+          key: ${{ hashFiles('requirements-dev.txt') }}
+
       - name: install development dependencies
-        run: pip3 install -r requirements-dev.txt
+        run: |
+          python3 -m venv project-venv
+          source project-venv/bin/activate
+          pip3 install -r requirements-dev.txt
 
       # tox automatically installs local package
       - name: Run tox.
-        run: tox
+        run: |
+          source project-venv/bin/activate
+          tox
 
       - name: generate coverage xml
         run: .tox/py3/bin/coverage xml -o coverage.xml
@@ -69,7 +80,8 @@ jobs:
         with:
           filename: coverage.xml
           fail_below_min: false
-          output: both
+          format: markdown
+          output: both # output to console and file
 
       - name: Add Coverage Report as Sticky PR Comment.
         uses: marocchino/sticky-pull-request-comment@v2

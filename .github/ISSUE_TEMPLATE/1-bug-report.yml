@@ -25,19 +25,6 @@ body:
     validations:
       required: true
   - type: textarea
-    id: what-i-ran
-    attributes:
-      label: What I ran
-      description: |
-        Paste a log of command(s) you ran, including all relevant output, tracebacks, etc, here.
-        NOTE: You need to divivde and enquote each block of commands with code blocks yourself (```).
-      placeholder: |
-        ```
-        
-        ```
-    validations:
-      required: false
-  - type: textarea
     id: host
     attributes:
       label: Environment Information

@@ -19,7 +19,7 @@ body:
   - type: textarea
     id: what-i-ran
     attributes:
-      label: What I ran:
+      label: What I ran
       description: |
         Paste a log of command(s) you ran and test's output, tracebacks, etc, here.
         NOTE: You need to divivde and enquote each block of commands with ``` yourself.

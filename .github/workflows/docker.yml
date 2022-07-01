@@ -87,7 +87,7 @@ jobs:
           tags: "jonaspammer/cookiecutter-pypackage-test:local"
 
       - name: Run Trivy vulnerability scanner on built Image.
-        uses: aquasecurity/trivy-action@0.3.0
+        uses: aquasecurity/trivy-action@0.5.1
         with:
           image-ref: "jonaspammer/cookiecutter-pypackage-test:local"
           format: table

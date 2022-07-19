@@ -97,6 +97,8 @@ $ python3 -m pip install -r requirements-dev.txt
 
 [[testing]]
 === 🧪 Testing
+https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test[image:https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg[codecov code coverage on master]]
+
 Automatic Tests are run on each Contribution using GitHub Workflows.
 
 To run the tests yourself, simply run `tox` on the command line.

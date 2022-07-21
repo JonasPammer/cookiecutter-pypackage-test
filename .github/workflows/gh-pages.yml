@@ -32,11 +32,8 @@ jobs:
       - name: Generate README.adoc using ascidoctor-reducer.
         run: asciidoctor-reducer README.orig.adoc -o README.adoc
 
-      - name: install asciidoc
-        run: sudo apt-get install -y asciidoc
-
       - name: generate README.xml from README.adoc using ascidoc
-        run: asciidoc -b docbook README.adoc
+        run: asciidoctor -b docbook README.adoc
 
       - name: Generate README.md from README.xml using pandoc
         uses: docker://pandoc/core:2.18

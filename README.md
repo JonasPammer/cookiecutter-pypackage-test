@@ -11,7 +11,7 @@ A Python Package to do random stuff.
 
 # System Requirements
 
--   Python 3.7 / PyPy 3.7 or above
+- Python 3.7 / PyPy 3.7 or above
 
 # Installing
 
@@ -41,7 +41,7 @@ Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workf
 This Project also offers a best-practiced Dockerfile to run this package
 in an ensured-to-be-working environment:
 
-Details in [README\_DOCKER](README_DOCKER.adoc).
+Details in [README_DOCKER](README_DOCKER.adoc).
 
 # 📝 Development
 
@@ -55,11 +55,11 @@ Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](
 
 ## 📌 Development Machine Dependencies
 
--   Python 3.7 or greater
+- Python 3.7 or greater
 
 or (optional)
 
--   Docker
+- Docker
 
 ## 📌 Development Dependencies
 
@@ -88,9 +88,9 @@ To run the tests yourself, simply run `tox` on the command line.
 Versions are defined using
 [Tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
 
-Versions must start with `v`.  
+Versions must start with `v`.
 When a new tag is pushed, [https://github.com/{{](https://github.com/{{)
-cookiecutter.github\_username }}/{{ cookiecutter.project\_slug
+cookiecutter.github_username }}/{{ cookiecutter.project\_slug
 }}/actions/workflows/release-to-pypi.yml\[ a GitHub CI workflow\]
 (![Release
 CI](https://github.com/{{%20cookiecutter.github_username%20}}/{{%20cookiecutter.project_slug%20}}/actions/workflows/release-to-pypi.yml/badge.svg))
@@ -123,8 +123,8 @@ from](https://github.com/JonasPammer/cookiecutter-pypackage) using
 [cruft](https://github.com/cruft/cruft) (if possible) or manual
 alteration (if needed) to the best extend possible.
 
-> ![Official Example Usage of \`cruft
-> update\`](https://raw.githubusercontent.com/cruft/cruft/master/art/example_update.gif)
+> ![Official Example Usage of `cruft
+update`](https://raw.githubusercontent.com/cruft/cruft/master/art/example_update.gif)
 
 ## 🕗 Changelog
 
@@ -194,9 +194,9 @@ multiple PRs.
 
 ## 💬 Conventional Commits
 
-A casual contributor does not have to worry about following [*the
-spec*](https://github.com/JonasPammer/JonasPammer/blob/master/demystifying/conventional_commits.adoc)
-[*by definition*](https://www.conventionalcommits.org/en/v1.0.0/), as
+A casual contributor does not have to worry about following [_the
+spec_](https://github.com/JonasPammer/JonasPammer/blob/master/demystifying/conventional_commits.adoc)
+[_by definition_](https://www.conventionalcommits.org/en/v1.0.0/), as
 pull requests are being squash merged into one commit in the project.
 Only core contributors, i.e. those with rights to push to this project’s
 branches, must follow it (e.g. to allow for automatic version
@@ -207,12 +207,12 @@ determination and changelog generation to work).
 Contributions are made to this repo via Issues and Pull Requests (PRs).
 A few general guidelines that cover both:
 
--   Search for existing Issues and PRs before creating your own.
+- Search for existing Issues and PRs before creating your own.
 
--   If you’ve never contributed before, see [ the first timer’s guide on
-    Auth0’s
-    blog](https://auth0.com/blog/a-first-timers-guide-to-an-open-source-project/)
-    for resources and tips on how to get started.
+- If you’ve never contributed before, see [ the first timer’s guide on
+  Auth0’s
+  blog](https://auth0.com/blog/a-first-timers-guide-to-an-open-source-project/)
+  for resources and tips on how to get started.
 
 ### Issues
 
@@ -237,18 +237,18 @@ your fix or improvement slated for the next release. [In
 general](https://blog.ploeh.dk/2015/01/15/10-tips-for-better-pull-requests/),
 PRs should:
 
--   Only fix/add the functionality in question **OR** address
-    wide-spread whitespace/style issues, not both.
+- Only fix/add the functionality in question **OR** address
+  wide-spread whitespace/style issues, not both.
 
--   Add unit or integration tests for fixed or changed functionality (if
-    a test suite already exists).
+- Add unit or integration tests for fixed or changed functionality (if
+  a test suite already exists).
 
--   **Address a single concern**
+- **Address a single concern**
 
--   **Include documentation** in the repo
+- **Include documentation** in the repo
 
--   Be accompanied by a complete Pull Request template (loaded
-    automatically when a PR is created).
+- Be accompanied by a complete Pull Request template (loaded
+  automatically when a PR is created).
 
 For changes that address core functionality or would require breaking
 changes (e.g. a major release), it’s best to open an Issue to discuss

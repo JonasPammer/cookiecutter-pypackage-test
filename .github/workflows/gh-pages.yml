@@ -26,6 +26,17 @@ jobs:
         with:
           ruby-version: "2.7.0"
 
+      - name: set up python 3
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: setup/activate pre-commit cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ hashFiles('.pre-commit-config.yaml') }}
+
       - name: install asciidoctor and other relevant ruby gems
         run: gem install --no-document asciidoctor asciidoctor-reducer rouge coderay
 
@@ -39,6 +50,11 @@ jobs:
         uses: docker://pandoc/core:2.18
         with:
           args: "-f docbook -t markdown_strict README.xml -o README.md"
+
+      - name: pre-commit README.md
+        run: |
+          python3 -m pip install pre-commit
+          pre-commit run --files README.md
 
       - name: Commit generated READMEs.
         uses: stefanzweifel/git-auto-commit-action@v4

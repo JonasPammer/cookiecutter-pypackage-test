@@ -94,7 +94,6 @@ $ source venv/bin/activate
 $ python3 -m pip install -r requirements-dev.txt
 ----
 
-
 [[testing]]
 === 🧪 Testing
 https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test[image:https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg[codecov code coverage on master]]
@@ -103,6 +102,32 @@ Automatic Tests are run on each Contribution using GitHub Workflows.
 
 To run the tests yourself, simply run `tox` on the command line.
 
+
+[[versioning]]
+=== 🔢 Versioning
+
+Versions are defined using https://git-scm.com/book/en/v2/Git-Basics-Tagging[Tags].
+
+Versions must start with `v`.
+
+Version Bumps shall be made through the use of
+https://github.com/c4urself/bump2version[`bump2version`], e.g.:
+
+----
+$ bump2version patch
+or
+$ bump2version minor
+or
+$ bump2version major
+----
+
+This tool automatically updates the version string in the required files
+and creates a generic commit messsage with an appropiate tag
+(as configured in `.bumpversion.cf`).
+
+After a new commit and tag has been created using `bump2version` and pushed,
+it's important not to forget to make an appropiate GitHub Release
+for Changelog purposes.
 
 [[cookiecutter]]
 === 🍪 CookieCutter

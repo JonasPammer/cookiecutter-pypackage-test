@@ -35,16 +35,16 @@ jobs:
       - name: generate README.xml from README.adoc using ascidoc
         run: asciidoctor -b docbook README.adoc
 
-      - name: Generate README.md from README.xml using pandoc
+      - name: Generate README-.md from README.xml using pandoc
         uses: docker://pandoc/core:2.18
         with:
-          args: "-f docbook -t markdown_strict README.xml -o README.md"
+          args: "-f docbook -t markdown_strict README.xml -o README-.md"
 
       - name: Commit generated READMEs.
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "docs: reduce README.orig.adoc \n ${{ github.event.head_commit.message }}"
-          file_pattern: README.adoc README.md
+          file_pattern: README.adoc README-.md
           disable_globbing: true
 
       - name: Generate HTML

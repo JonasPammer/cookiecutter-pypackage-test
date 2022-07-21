@@ -108,7 +108,14 @@ To run the tests yourself, simply run `tox` on the command line.
 
 Versions are defined using https://git-scm.com/book/en/v2/Git-Basics-Tagging[Tags].
 
-Versions must start with `v`.
+Versions must start with `v`. +
+When a new tag is pushed, https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/release-to-pypi.yml[
+a GitHub CI workflow]
+(image:https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/release-to-pypi.yml/badge.svg[Release CI])
+takes care of building the wheels using
+https://pypi.org/project/build/[build]
+and uploading them to PyPI using
+https://pypi.org/project/twine/[twine].
 
 Version Bumps shall be made through the use of
 https://github.com/c4urself/bump2version[`bump2version`], e.g.:

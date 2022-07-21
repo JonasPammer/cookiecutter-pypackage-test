@@ -1,5 +1,5 @@
-[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml/badge.svg\[CI
-Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml)\]
+[![CI
+Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml/badge.svg)](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml)
 ![Python
 Versions](https://img.shields.io/pypi/pyversions/test_application.svg)
 
@@ -7,7 +7,7 @@ A Python Package to do random stuff.
 
 # Features
 
-…
+…​
 
 # System Requirements
 
@@ -35,9 +35,8 @@ virtual environment:
 
 # Extra: Run using Docker
 
-[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml/badge.svg\[Docker
-Workflow
-Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml)\]
+[![Docker Workflow
+Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml/badge.svg)](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml)
 
 This Project also offers a best-practiced Dockerfile to run this package
 in an ensured-to-be-working environment:
@@ -46,13 +45,13 @@ Details in [README\_DOCKER](README_DOCKER.adoc).
 
 # 📝 Development
 
-![pre-commit](https://img.shields.io/badge/pre—commit-enabled-brightgreen?logo=pre-commit&logoColor=white)
-[image:https://results.pre-commit.ci/badge/github/JonasPammer/cookiecutter-pypackage-test/master.svg\[pre-commit.ci
-status](https://results.pre-commit.ci/latest/github/JonasPammer/cookiecutter-pypackage-test/master)\]
-[image:https://img.shields.io/badge/code%20style-black-000000.svg\[code
-style: black](https://github.com/psf/black)\]
-[image:https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg\[Conventional
-Commits](https://conventionalcommits.org)\]
+![pre-commit](https://img.shields.io/badge/pre—​commit-enabled-brightgreen?logo=pre-commit&logoColor=white)
+[![pre-commit.ci
+status](https://results.pre-commit.ci/badge/github/JonasPammer/cookiecutter-pypackage-test/master.svg)](https://results.pre-commit.ci/latest/github/JonasPammer/cookiecutter-pypackage-test/master)
+[![code style:
+black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Conventional
+Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 ## 📌 Development Machine Dependencies
 
@@ -77,9 +76,8 @@ Linux are shown below:
 
 ## 🧪 Testing
 
-[image:https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg\[codecov
-code coverage on
-master](https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test)\]
+[![codecov code coverage on
+master](https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg)](https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test)
 
 Automatic Tests are run on each Contribution using GitHub Workflows.
 
@@ -158,9 +156,8 @@ running `pre-commit run --all-files`.
 
 # 💪 Contributing ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 
-[image:https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc\[Open
-in Visual Studio
-Code](https://open.vscode.dev/JonasPammer/cookiecutter-pypackage-test)\]
+[![Open in Visual Studio
+Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/JonasPammer/cookiecutter-pypackage-test)
 
 The following sections are generic in nature and are used to help new
 contributors. The actual "Development Documentation" of this project is
@@ -204,7 +201,7 @@ A few general guidelines that cover both:
 
 -   Search for existing Issues and PRs before creating your own.
 
--   If you’ve never contributed before, see [the first timer’s guide on
+-   If you’ve never contributed before, see [ the first timer’s guide on
     Auth0’s
     blog](https://auth0.com/blog/a-first-timers-guide-to-an-open-source-project/)
     for resources and tips on how to get started.
@@ -212,8 +209,8 @@ A few general guidelines that cover both:
 ### Issues
 
 Issues should be used to report problems, request a new feature, or to
-discuss potential changes **before** a PR is created. When you [create a
-new
+discuss potential changes **before** a PR is created. When you [ create
+a new
 Issue](https://github.com/JonasPammer/cookiecutter-pypackage-test/issues/new),
 a template will be loaded that will guide you through collecting and
 providing the information we need to investigate.

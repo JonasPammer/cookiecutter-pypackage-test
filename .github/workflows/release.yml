@@ -1,4 +1,5 @@
 name: Build and Upload to PyPI
+permissions: read-all
 
 "on":
   push:

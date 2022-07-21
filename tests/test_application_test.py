@@ -10,6 +10,7 @@ from test_application import test_application
 @pytest.fixture
 def response():
     """Sample pytest fixture.
+
     See more at: http://doc.pytest.org/en/latest/fixture.html
     """
     # import requests

@@ -2,9 +2,8 @@
 Jonas Pammer <opensource@jonaspammer.at>;
 
 https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml/badge.svg[Docker Workflow Status]]
-
 ifdef::env-github[]
-https://hub.docker.com/repository/docker/jonaspammer/cookiecutter-pypackage-test[image:https://img.shields.io/badge/Link_to-Docker_Hub-blue[]
+https://hub.docker.com/repository/docker/jonaspammer/cookiecutter-pypackage-test[image:https://img.shields.io/badge/Link_to-Docker_Hub-blue[]]
 endif::[]
 
 This image can be used to run

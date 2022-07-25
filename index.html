@@ -467,7 +467,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#development-system-dependencies">📌 Development Machine Dependencies</a></li>
 <li><a href="#development-dependencies">📌 Development Dependencies</a></li>
-<li><a href="#testing">🧪 Testing</a></li>
+<li><a href="#updating-dependencies">📌 How to manually update pinned dependencies</a></li>
+<li><a href="#testing">🧪 Testing <span class="image"><img src="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg" alt="codecov code coverage on master"></span></a></li>
+<li><a href="#versioning">🔢 Versioning</a></li>
 <li><a href="#cookiecutter">🍪 CookieCutter</a></li>
 <li><a href="#_changelog">🕗 Changelog</a></li>
 <li><a href="#pre-commit">ℹ️ General Linting and Styling Conventions</a></li>
@@ -602,23 +604,129 @@ Example Installation Instructions for Linux are shown below:</p>
 <div class="listingblock">
 <div class="content">
 <pre># "optional": create a python virtualenv and activate it for the current shell session
-$ python3 -m venv venv
-$ source venv/bin/activate
+$ <strong>python3 -m venv venv</strong>
+$ <strong>source venv/bin/activate</strong>
 
-$ python3 -m pip install -r requirements-dev.txt</pre>
+(venv)$ <strong>python3 -m pip install -r requirements-dev.txt</strong></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Installing the package locally from live source itself can be done using the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># "optional": ensure it actually works by using previously-pinned versions
+(venv)$ <strong>python3 -m pip install -r requirements.txt</strong>
+
+# install package from path in develop mode
+(venv)$ <strong>python3 -m pip install -e .</strong></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When you alter the package definition (i.e. <code>setup.cfg</code>)
+you need to re-run the install command (e.g. to register new cli scripts).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(venv)$ <strong>python3 -m pip install -e .</strong></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updating-dependencies">📌 How to manually update pinned dependencies</h3>
+<div class="paragraph">
+<p>pre-commit takes care of updating the "pinned requirement files" (<code>requirements*.txt</code>)
+when their counterpart definition changes.</p>
+</div>
+<div class="paragraph">
+<p>You may want to run the following commands
+to manually trigger a regeneration though:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(venv)$ <strong>python3 -m pip install pip-tools</strong>
+
+(venv)$ <strong>pip-compile</strong>
+or/and
+(venv)$ <strong>pip-compile requirements-dev.in</strong>
+or/and
+(venv)$ <strong>pip-compile requirements-build.in</strong></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="testing">🧪 Testing</h3>
-<div class="paragraph">
-<p><a href="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test"><span class="image"><img src="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg" alt="codecov code coverage on master"></span></a></p>
-</div>
+<h3 id="testing">🧪 Testing <a href="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test"><span class="image"><img src="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg" alt="codecov code coverage on master"></span></a></h3>
 <div class="paragraph">
 <p>Automatic Tests are run on each Contribution using GitHub Workflows.</p>
 </div>
 <div class="paragraph">
 <p>To run the tests yourself, simply run <code>tox</code> on the command line.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="versioning">🔢 Versioning</h3>
+<div class="paragraph">
+<p>Versions are defined using <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">Tags</a> which start with <code>v</code>.</p>
+</div>
+<div class="paragraph">
+<p>When a new tag is pushed,
+<a href="https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/release-to-pypi.yml">a GitHub CI workflow</a>
+(<span class="image"><img src="https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/release-to-pypi.yml/badge.svg" alt="Release CI"></span>)
+takes care of building the wheels using
+<a href="https://pypi.org/project/build/">build</a>
+and uploading them to PyPI using
+<a href="https://pypi.org/project/twine/">twine</a>.</p>
+</div>
+<div class="paragraph">
+<p>Version Bumps shall be made through the use of
+<a href="https://github.com/c4urself/bump2version"><code>bump2version</code></a>, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ <strong>bump2version patch</strong>
+or
+$ <strong>bump2version minor</strong>
+or
+$ <strong>bump2version major</strong></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This tool automatically updates the version string in the required files
+and creates a generic commit with a matching tag
+(as configured in <code>.bumpversion.cf</code>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not forget that <em>just</em> git push&#8217;ing does not push tags!
+Use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ <strong>git push origin &lt;tag_name&gt;</strong>
+or
+$ <strong>git push origin $(git describe --match "v</strong>")*</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -671,7 +779,7 @@ at least by hooks that automatically alter files.</p>
 <p>Not to confuse:
 Although some pre-commit hooks may be able to warn you about script-analyzed flaws in syntax or even code to some extend (for which reason pre-commit&#8217;s hooks are <strong>part of</strong> the test suite),
 pre-commit itself does not run any real Test Suites.
-For Information on Testing, see <a href="#testing">🧪 Testing</a>.</p>
+For Information on Testing, see <a href="#testing">🧪 Testing <span class="image"><img src="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg" alt="codecov code coverage on master"></span></a>.</p>
 </div>
 </td>
 </tr>
@@ -888,7 +996,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-07-21 09:11:45 UTC
+Last updated 2022-07-25 14:01:30 UTC
 </div>
 </div>
 </body>

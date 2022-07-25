@@ -19,10 +19,18 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: setup/activate project-venv cache
+        uses: actions/cache@v3
+        with:
+          path: project-venv
+          key: ${{ hashFiles('requirements-*.txt') }}
+
       - name: Install dependencies
         run: |
+          python3 -m venv project-venv
+          source project-venv/bin/activate
           python3 -m pip install --upgrade pip
-          python3 -m pip install setuptools wheel build twine
+          python3 -m pip install -r requirements-build.txt
 
       # https://setuptools.pypa.io/en/latest/deprecated/commands.html
       # > While it is perfectly fine that users write setup.py files to configure a package build
@@ -36,5 +44,6 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_KEY }}
         run: |
+          source project-venv/bin/activate
           python3 -m build
           twine upload dist/*

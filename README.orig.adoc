@@ -19,7 +19,6 @@ https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.
 image:https://img.shields.io/pypi/pyversions/test_application.svg[Python Versions]
 
 
-
 A Python Package to do random stuff.
 
 

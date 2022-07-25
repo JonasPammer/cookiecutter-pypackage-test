@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/JonasPammer/cookiecutter-pypackage.git",
-  "commit": "48169f3e27147c8cd6baaa71ad246427da8a340b",
+  "commit": "496fee30b3123c6165060911051b4a88da8ac1e8",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -14,7 +14,6 @@
       "project_short_description": "do random stuff",
       "dockerhub_username": "jonaspammer",
       "pypi_username": "JonasPammer",
-      "will_be_uploaded_to_pypi": "y",
       "command_line_interface": "Click",
       "use_pytest": "y",
       "_template": "https://github.com/JonasPammer/cookiecutter-pypackage.git"

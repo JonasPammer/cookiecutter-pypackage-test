@@ -88,13 +88,12 @@ re-run the install command (e.g. to register new cli scripts).
 
     (venv)$ python3 -m pip install -e .
 
-## 📌 How to manually update pinned dependencies
+### ℹ️ Manually updating pinned dependencies
 
 pre-commit takes care of updating the "pinned requirement files"
 (`requirements*.txt`) when their counterpart definition changes.
 
-You may want to run the following commands to manually trigger a
-regeneration though:
+You may also run the commands yourself if you like:
 
     (venv)$ python3 -m pip install pip-tools
 

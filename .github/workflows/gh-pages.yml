@@ -1,5 +1,5 @@
 ---
-name: build self-contained README
+name: build self-contained READMEs
 permissions:
   pages: write
   contents: write

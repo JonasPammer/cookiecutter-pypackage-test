@@ -14,7 +14,7 @@
       "project_short_description": "do random stuff",
       "dockerhub_username": "jonaspammer",
       "pypi_username": "JonasPammer",
-      "will_be_uploaded_to_pypi": "y",
+      "use_automated_pypi_deployment": "y",
       "command_line_interface": "Click",
       "use_pytest": "y",
       "_template": "https://github.com/JonasPammer/cookiecutter-pypackage.git"

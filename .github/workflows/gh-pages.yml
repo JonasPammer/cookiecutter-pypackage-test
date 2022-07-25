@@ -43,7 +43,7 @@ jobs:
       - name: Generate README.adoc using ascidoctor-reducer.
         run: asciidoctor-reducer README.orig.adoc -o README.adoc
 
-      - name: generate README.xml from README.adoc using ascidoc
+      - name: generate README.xml from README.adoc using ascidoctor
         run: asciidoctor -b docbook README.adoc
 
       - name: Generate README.md from README.xml using pandoc

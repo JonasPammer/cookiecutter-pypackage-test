@@ -111,9 +111,11 @@ This tool automatically updates the version string in the required files
 and creates a generic commit messsage with an appropiate tag (as
 configured in `.bumpversion.cf`).
 
-After a new commit and tag has been created using `bump2version` and
-pushed, it’s important not to forget to make an appropiate GitHub
-Release for Changelog purposes.
+Do not forget that _just_ git push’ing does not push tags! Use:
+
+    $ git push origin <tag_name>
+    or
+    $ git push origin $(git describe --match "v")*
 
 ## 🍪 CookieCutter
 

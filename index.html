@@ -466,8 +466,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#development">📝 Development</a>
 <ul class="sectlevel2">
 <li><a href="#development-system-dependencies">📌 Development Machine Dependencies</a></li>
-<li><a href="#development-dependencies">📌 Development Dependencies</a></li>
-<li><a href="#updating-dependencies">📌 How to manually update pinned dependencies</a></li>
+<li><a href="#development-dependencies">📌 Development Dependencies</a>
+<ul class="sectlevel3">
+<li><a href="#updating-dependencies">ℹ️ Manually updating pinned dependencies</a></li>
+</ul>
+</li>
 <li><a href="#testing">🧪 Testing <span class="image"><img src="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg" alt="codecov code coverage on master"></span></a></li>
 <li><a href="#versioning">🔢 Versioning</a></li>
 <li><a href="#cookiecutter">🍪 CookieCutter</a></li>
@@ -642,16 +645,14 @@ you need to re-run the install command (e.g. to register new cli scripts).</p>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="updating-dependencies">📌 How to manually update pinned dependencies</h3>
+<div class="sect3">
+<h4 id="updating-dependencies">ℹ️ Manually updating pinned dependencies</h4>
 <div class="paragraph">
 <p>pre-commit takes care of updating the "pinned requirement files" (<code>requirements*.txt</code>)
 when their counterpart definition changes.</p>
 </div>
 <div class="paragraph">
-<p>You may want to run the following commands
-to manually trigger a regeneration though:</p>
+<p>You may also run the commands yourself if you like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -662,6 +663,7 @@ or/and
 (venv)$ <strong>pip-compile requirements-dev.in</strong>
 or/and
 (venv)$ <strong>pip-compile requirements-build.in</strong></pre>
+</div>
 </div>
 </div>
 </div>
@@ -996,7 +998,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-07-25 14:01:30 UTC
+Last updated 2022-07-25 14:14:32 UTC
 </div>
 </div>
 </body>

@@ -34,9 +34,9 @@ To run the tests yourself, simply run `tox` on the command line.
 [[versioning]]
 === 🔢 Versioning
 
-Versions are defined using https://git-scm.com/book/en/v2/Git-Basics-Tagging[Tags].
+Versions are defined using https://git-scm.com/book/en/v2/Git-Basics-Tagging[Tags]
+which start with `v`.
 
-Versions must start with `v`. +
 When a new tag is pushed, https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/release-to-pypi.yml[
 a GitHub CI workflow]
 (image:https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/release-to-pypi.yml/badge.svg[Release CI])
@@ -58,7 +58,7 @@ $ *bump2version major*
 ----
 
 This tool automatically updates the version string in the required files
-and creates a generic commit messsage with an appropiate tag
+and creates a generic commit with a matching tag
 (as configured in `.bumpversion.cf`).
 
 [NOTE]

@@ -54,7 +54,7 @@ jobs:
       - name: pre-commit README.md
         run: |
           python3 -m pip install pre-commit
-          pre-commit run --files README.md
+          pre-commit run --files README.md || true
 
       - name: Commit generated READMEs.
         uses: stefanzweifel/git-auto-commit-action@v4

@@ -105,9 +105,21 @@ You may also run the commands yourself if you like:
 
 ## 🧪 Testing [![codecov code coverage on master](https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg)](https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test)
 
-Automatic Tests are run on each Contribution using GitHub Workflows.
+Automatic Tests are run on each Contribution on all major Operating
+Systems (macOS, Windows, Ubuntu) and Python versions (Python 3.7+) using
+GitHub Workflows.
 
-To run the tests yourself, simply run `tox` on the command line.
+To run the testsuite yourself on your own machine you need to manually
+pass the wanted python and pip version to use into the `tox` command as
+shown in the examples below:
+
+    $ tox -e py37-latest
+    or
+    $ tox -e py38-previous
+    or
+    $ tox -e py311-main
+    or
+    $ tox -e pypy3-latest
 
 ## 🔢 Versioning
 

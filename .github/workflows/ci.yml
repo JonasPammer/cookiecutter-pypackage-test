@@ -71,13 +71,13 @@ jobs:
       - name: check out the codebase
         uses: actions/checkout@v3
 
-      - name: set up python ${{ matrix.python-version }} using github action
-        uses: actions/setup-python@v3 using GitHub Action
+      - name: set up python ${{ matrix.python-version }} using github's action
+        uses: actions/setup-python@v3
         if: "!endsWith(matrix.python-version, '-dev')"
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: set up Python ${{ matrix.python-version }} using deadsnakes action
+      - name: set up Python ${{ matrix.python-version }} using deadsnakes's action
         if: endsWith(matrix.python-version, '-dev')
         uses: deadsnakes/action@v2.0.1
         with:

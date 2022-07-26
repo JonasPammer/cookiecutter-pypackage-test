@@ -85,12 +85,12 @@ jobs:
 
       - name: log python version info (${{ matrix.python-version }})
         run: python --version --version
-      
+
       - name: get pip cache dir
         id: pip-cache
         run: |
           echo "::set-output name=dir::$(pip cache dir)"
-      
+
       - name: setup/activate pip cache
         uses: actions/cache@v2
         with:

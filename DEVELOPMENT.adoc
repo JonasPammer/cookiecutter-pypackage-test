@@ -71,7 +71,7 @@ Automatic Tests are run on each Contribution on all major Operating Systems
 (macOS, Windows, Ubuntu) and Python versions (Python 3.7+) using GitHub Workflows.
 
 To run the testsuite yourself on your own machine you need to manually pass
-the wanted python and pip version to use into the `tox` command 
+the wanted python and pip version to use into the `tox` command
 as shown in the examples below:
 
 ----

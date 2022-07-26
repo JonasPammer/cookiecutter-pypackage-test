@@ -1,5 +1,5 @@
 ---
-name: Run Tox and generate Coverage Report
+name: Run Tox and Coverage
 permissions: read-all
 "on":
   workflow_dispatch:

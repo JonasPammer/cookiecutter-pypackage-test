@@ -30,6 +30,11 @@ permissions: read-all
     # At 05:00 on Sunday.
     - cron: "0 5 * * 0"
 
+# Cancel running jobs when a pull request is updated
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
 jobs:
   ci:
     name: Run Tox and generate Coverage Report.

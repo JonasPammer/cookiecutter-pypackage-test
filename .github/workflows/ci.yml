@@ -123,13 +123,13 @@ jobs:
           pip3 install -r requirements.txt
 
       # tox automatically pip installs local directory
-      - name: Run tox.
+      - name: Run tox ${{ env.TOXENV }}
         run: |
           source project-venv/bin/activate
           tox
 
       - name: generate coverage xml
-        run: .tox/py3/bin/coverage xml -o coverage.xml
+        run: .tox/pip${{ matrix.pip-version }}/bin/coverage xml -o coverage.xml
 
       - name: Upload coverage to Codecov and add Pull Request comment
         uses: codecov/codecov-action@v3

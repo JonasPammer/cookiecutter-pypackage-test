@@ -79,7 +79,7 @@ jobs:
 
       - name: set up python ${{ matrix.python-version }} using deadsnakes's action
         if: endsWith(matrix.python-version, '-dev')
-        uses: deadsnakes/action@v2.0.1
+        uses: deadsnakes/action@v2.1.1
         with:
           python-version: ${{ matrix.python-version }}
 

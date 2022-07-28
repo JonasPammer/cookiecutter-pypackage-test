@@ -122,7 +122,7 @@ jobs:
           name: ${{ runner.os }}-${{ matrix.python-version }}-${{ matrix.pip-version }}
 
   pypy:
-    name: ${{ matrix.os }} / PyPy ${{ matrix.python-version }} / ${{ matrix.pip-version }} pip
+    name: ${{ matrix.os }} / ${{ matrix.python-version }} / ${{ matrix.pip-version }} pip
     runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false

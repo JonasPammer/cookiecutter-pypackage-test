@@ -96,9 +96,11 @@ jobs:
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
           key: >-
-            ${{ runner.os }}-pip-${{ hashFiles('setup.*') }}-${{
-            hashFiles('requirements*.txt') }}-${{ hashFiles('tox.ini') }}-${{
-            hashFiles('.pre-commit-config.yaml') }}
+            ${{ runner.os }}-pip-
+            ${{ hashFiles('setup.*') }}-
+            ${{ hashFiles('requirements*.txt') }}-
+            ${{ hashFiles('tox.ini') }}-
+            ${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pip-
             ${{ runner.os }}-

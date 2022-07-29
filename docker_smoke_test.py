@@ -15,6 +15,7 @@ from time import sleep
 
 def _print(_: str) -> None:
     print(f"[{__file__}] {_}")
+    sys.stdout.flush()
 
 
 def get_docker_logs(docker_container_id: str) -> str:

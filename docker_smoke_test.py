@@ -9,6 +9,7 @@ from subprocess import CalledProcessError
 from subprocess import check_call
 from subprocess import check_output
 from subprocess import STDOUT
+import sys
 from time import sleep
 
 
@@ -26,7 +27,7 @@ def _log_docker_logs(docker_container_id: str) -> None:
     )
     _print(_preamble)
     print(get_docker_logs(docker_container_id))
-    _print("-" * len(_preamble))
+    _print("-" * int(len(_preamble)/2))
 
 
 def main() -> int:

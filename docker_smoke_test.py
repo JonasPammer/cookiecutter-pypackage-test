@@ -21,7 +21,8 @@ def main() -> int:
     _print("Building local version of Docker Image...")
     check_call(
         "docker buildx build . "
-        "--tag jonaspammer/cookiecutter-pypackage-test:smoke-please-ignore".split()
+        "--tag jonaspammer/cookiecutter-pypackage-test:smoke-please-ignore "
+        "--load".split()
     )
 
     # FIXME: adjust run command here as needed

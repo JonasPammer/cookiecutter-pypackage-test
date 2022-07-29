@@ -73,7 +73,6 @@ jobs:
       # and now we run it
       - name: Run Docker Smoke Test
         run: python3 docker_smoke_test.py
-        working-directory: ./some-package
 
   dockerhub:
     if: github.event_name != 'pull_request'

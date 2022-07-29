@@ -1,3 +1,4 @@
+---
 name: Docker Image Scan / Build / README
 
 "on":
@@ -98,40 +99,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-<<<<<<< ours
-  trivy-security:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v3
-
-      - name: set up qemu for docker
-        uses: docker/setup-qemu-action@v2
-
-      - name: set up docker buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Build Dockerfile.
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: false
-          load: true
-          tags: "jonaspammer/cookiecutter-pypackage-test:local"
-
-      - name: Run Trivy vulnerability scanner on built Image.
-        uses: aquasecurity/trivy-action@0.3.0
-        with:
-          image-ref: "jonaspammer/cookiecutter-pypackage-test:local"
-          format: table
-          exit-code: "1"
-          # relevant read: https://pythonspeed.com/articles/docker-security-scanner/
-          ignore-unfixed: true
-          vuln-type: "os,library"
-          severity: "CRITICAL,HIGH"
-
-=======
->>>>>>> theirs
   dockerhub-readme:
     needs: dockerhub
     runs-on: ubuntu-latest

@@ -16,8 +16,17 @@ def _print(_: str) -> None:
     print(f"[{__file__}] {_}")
 
 
-def _get_docker_logs(docker_container_id: str) -> str:
-    return check_output(["docker", "logs", "docker_container_id"]).decode("utf-8")
+def get_docker_logs(docker_container_id: str) -> str:
+    return check_output(["docker", "logs", f"{docker_container_id}"]).decode("utf-8")
+
+
+def _log_docker_logs(docker_container_id: str) -> None:
+    _preamble: str = (
+        "-" * 6 + f" DOCKER CONTAINER LOGS OF '{docker_container_id}' " + "-" * 6
+    )
+    _print(_preamble)
+    print(get_docker_logs(docker_container_id))
+    _print("-" * len(_preamble))
 
 
 def main() -> int:
@@ -47,7 +56,7 @@ def main() -> int:
         _print("FIXME: Implement actual Smoke Tests here if any!")
 
         # Example 1: Check output
-        # assert "xyz" in _get_docker_logs(docker_container_id)
+        # assert "xyz" in get_docker_logs(docker_container_id)
 
         # Example 2: Check if a http server started
         # (urlopen throws an URLError on http protocol errors):
@@ -69,9 +78,10 @@ def main() -> int:
         if docker_container_entrypoint_exit_code != "0":
             # raise right here so container is not killed/removed
             # in order to allow for debugging
+            _log_docker_logs(docker_container_id)
             raise Exception(
                 f"Docker Container '{docker_container_id}' exited with "
-                f"{docker_container_entrypoint_exit_code}"
+                f"{docker_container_entrypoint_exit_code}."
             )
 
         try:
@@ -83,6 +93,7 @@ def main() -> int:
             if "not running" not in ex.output.decode():
                 raise ex
         finally:
+            _log_docker_logs(docker_container_id)
             _print("Removing Container...")
             check_call(f"docker rm {docker_container_id}".split())
     return 0

@@ -7,7 +7,7 @@ import click
 def main() -> None:
     # NOTE: click does not pass on the return value of the function.
     # use `raise SystemExit(return_code)` yourself where necessary
-    pass
+    raise SystemExit(1)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 """Pure, Dependency-Free Python3 File to 'Smoke Test' running the Docker
-Container https://pythonspeed.com/articles/test-your-docker-build/."""
+Container. https://pythonspeed.com/articles/test-your-docker-build/"""
 from __future__ import annotations
 
 from subprocess import CalledProcessError

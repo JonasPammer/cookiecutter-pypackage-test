@@ -56,9 +56,28 @@ jobs:
           vuln-type: "os,library"
           severity: "CRITICAL,HIGH"
 
+  smoke-test:
+    needs: trivy-security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v3
+
+      - name: set up qemu for docker
+        uses: docker/setup-qemu-action@v2
+
+      - name: set up docker buildx
+        uses: docker/setup-buildx-action@v2
+
+      # We've successfully built it, we've successfully statically scanned it,
+      # and now we run it
+      - name: Run Docker Smoke Test
+        run: python3 docker_smoke_test.py
+        working-directory: ./some-package
+
   dockerhub:
     if: github.event_name != 'pull_request'
-    needs: trivy-security
+    needs: [trivy-security, smoke-test]
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.

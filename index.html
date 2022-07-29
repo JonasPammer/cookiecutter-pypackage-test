@@ -670,10 +670,34 @@ or/and
 <div class="sect2">
 <h3 id="testing">🧪 Testing <a href="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test"><span class="image"><img src="https://codecov.io/gh/JonasPammer/cookiecutter-pypackage-test/branch/master/graph/badge.svg" alt="codecov code coverage on master"></span></a></h3>
 <div class="paragraph">
-<p>Automatic Tests are run on each Contribution using GitHub Workflows.</p>
+<p>Automatic Tests are run on each Contribution on all major Operating Systems
+(macOS, Windows, Ubuntu) and Python versions (Python 3.7+) using GitHub Workflows.</p>
 </div>
 <div class="paragraph">
-<p>To run the tests yourself, simply run <code>tox</code> on the command line.</p>
+<p>In order to run the testsuite locally you need to tell tox (the test runner)
+which environment (python version - pip version) you want to run
+as seen in the Examples below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># use default python 3 of system
+$ *tox -e py3*
+
+# use a specified version of python
+$ *tox -e py37*
+
+# implicitly use default python 3 of system, ensuring the use of some fixed old pip version
+$ *tox -e pipprevious*
+
+# implicitly use default python 3 of system, ensuring the use of latest published and accessible version of pip
+$ *tox -e piplatest*
+
+# implicitly use default python 3 of system, ensuring the use of latest devel version of pip
+$ *tox -e pipmain*
+
+# mix and match the above
+$ *tox -e py37-piplatest*</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -998,7 +1022,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-07-25 14:14:32 UTC
+Last updated 2022-07-29 07:43:31 UTC
 </div>
 </div>
 </body>

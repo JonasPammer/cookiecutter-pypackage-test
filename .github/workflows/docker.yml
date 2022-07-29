@@ -13,6 +13,7 @@ name: Docker Image Scan / Build / README
       - ".github/workflows/docker.yml"
       - ".dockerignore"
       - "Dockerfile"
+      - "docker_smoke_test.py"
       # as per .dockerignore:
       - "requirements.txt"
       - "setup.cfg"

@@ -57,7 +57,6 @@ jobs:
           severity: "CRITICAL,HIGH"
 
   smoke-test:
-    needs: trivy-security
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.

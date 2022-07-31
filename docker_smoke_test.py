@@ -90,7 +90,7 @@ def main() -> int:
             _print("Killing Container...")
             check_output(f"docker kill {docker_container_id}".split(), stderr=STDOUT)
             # FIXME: remove the below exception catch if the dockerfile
-            #        actually shouldve actually started a server
+            #        shouldve actually started a server
         except CalledProcessError as ex:
             if "not running" not in ex.output.decode():
                 raise ex

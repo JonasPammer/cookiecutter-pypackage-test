@@ -131,6 +131,11 @@ as seen in the Examples below:
     # mix and match the above
     $ *tox -e py37-piplatest*
 
+In order to run the additional dockerfile smoke test simply execute the
+`docker_smoke_test.py` file as shown below:
+
+    $ python3 docker_smoke_test.py
+
 ## 🔢 Versioning
 
 Versions are defined using

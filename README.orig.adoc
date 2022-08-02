@@ -18,6 +18,7 @@ endif::[]
 https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml/badge.svg[CI Status]]
 image:https://img.shields.io/pypi/pyversions/test_application.svg[Python Versions]
 
+https://api.securityscorecards.dev/projects/github.com/JonasPammer/cookiecutter-pypackage-test[image:https://api.securityscorecards.dev/projects/github.com/JonasPammer/cookiecutter-pypackage-test/badge[OpenSSF Scorecard]]
 
 A Python Package to do random stuff.
 

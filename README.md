@@ -3,9 +3,6 @@ Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workf
 ![Python
 Versions](https://img.shields.io/pypi/pyversions/test_application.svg)
 
-[![OpenSSF
-Scorecard](https://api.securityscorecards.dev/projects/github.com/JonasPammer/cookiecutter-pypackage-test/badge)](https://api.securityscorecards.dev/projects/github.com/JonasPammer/cookiecutter-pypackage-test)
-
 A Python Package to do random stuff.
 
 # Features

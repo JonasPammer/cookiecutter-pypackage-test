@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM python:3.7-slim-bullseye
+FROM python:3.10-slim-bullseye@sha256:2124d4f8ccbd537500de16660a876263949ed9a9627cfb6141f418d36f008e9e
 LABEL maintainer="opensource@jonaspammer.at"
 LABEL org.opencontainers.source="https://github.com/JonasPammer/cookiecutter-pypackage-test"
 

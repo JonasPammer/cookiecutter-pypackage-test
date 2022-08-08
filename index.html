@@ -436,221 +436,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge .cm {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cp {
-  color: #999999;
-  font-weight: bold;
-}
-pre.rouge .c1 {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-pre.rouge .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-pre.rouge .ge {
-  color: #000000;
-  font-style: italic;
-}
-pre.rouge .gr {
-  color: #aa0000;
-}
-pre.rouge .gh {
-  color: #999999;
-}
-pre.rouge .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-pre.rouge .go {
-  color: #888888;
-}
-pre.rouge .gp {
-  color: #555555;
-}
-pre.rouge .gs {
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #aaaaaa;
-}
-pre.rouge .gt {
-  color: #aa0000;
-}
-pre.rouge .kc {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kd {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kn {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kp {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kr {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kt {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .k, pre.rouge .kv {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .mf {
-  color: #009999;
-}
-pre.rouge .mh {
-  color: #009999;
-}
-pre.rouge .il {
-  color: #009999;
-}
-pre.rouge .mi {
-  color: #009999;
-}
-pre.rouge .mo {
-  color: #009999;
-}
-pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
-  color: #009999;
-}
-pre.rouge .sa {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .sb {
-  color: #d14;
-}
-pre.rouge .sc {
-  color: #d14;
-}
-pre.rouge .sd {
-  color: #d14;
-}
-pre.rouge .s2 {
-  color: #d14;
-}
-pre.rouge .se {
-  color: #d14;
-}
-pre.rouge .sh {
-  color: #d14;
-}
-pre.rouge .si {
-  color: #d14;
-}
-pre.rouge .sx {
-  color: #d14;
-}
-pre.rouge .sr {
-  color: #009926;
-}
-pre.rouge .s1 {
-  color: #d14;
-}
-pre.rouge .ss {
-  color: #990073;
-}
-pre.rouge .s, pre.rouge .dl {
-  color: #d14;
-}
-pre.rouge .na {
-  color: #008080;
-}
-pre.rouge .bp {
-  color: #999999;
-}
-pre.rouge .nb {
-  color: #0086B3;
-}
-pre.rouge .nc {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .no {
-  color: #008080;
-}
-pre.rouge .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-pre.rouge .ni {
-  color: #800080;
-}
-pre.rouge .ne {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nl {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nn {
-  color: #555555;
-}
-pre.rouge .nt {
-  color: #000080;
-}
-pre.rouge .vc {
-  color: #008080;
-}
-pre.rouge .vg {
-  color: #008080;
-}
-pre.rouge .vi {
-  color: #008080;
-}
-pre.rouge .nv, pre.rouge .vm {
-  color: #008080;
-}
-pre.rouge .ow {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .o {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .w {
-  color: #bbbbbb;
-}
-pre.rouge {
-  background-color: #f8f8f8;
-}
-</style>
 </head>
 <body class="article">
 <div id="header">
@@ -835,7 +620,7 @@ $ <strong>source venv/bin/activate</strong>
 <div class="listingblock">
 <div class="content">
 <pre># "optional": ensure it actually works by using previously-pinned versions
-(venv)$ <strong>python3 -m pip install -r requirements.txt</strong>
+(venv)$ <strong>python3 -m pip install -r requirements.txt</strong> --require-hashes
 
 # install package from path in develop mode
 (venv)$ <strong>python3 -m pip install -e .</strong></pre>
@@ -864,44 +649,18 @@ you need to re-run the install command (e.g. to register new cli scripts).</p>
 <div class="sect3">
 <h4 id="updating-dependencies">ℹ️ Updating pinned dependencies</h4>
 <div class="paragraph">
-<p>When you change the dependencies of the pypackage (located in <code>setup.cfg</code>)
-or any of the <code>requirements*.in</code> files you&#8217;ll need to generate their
-<code>requirements.txt</code> "pinned version counterparts" appropiately with the use of <code>pip-compile</code>:</p>
+<p>When you change the dependencies of the pypackage (in <code>setup.cfg</code>)
+or change one of the <code>requirements*.in</code> files you must run
+the appropriate commands to regenerate their <code>*.txt</code> counterparts.
+The command to run is denoted in form of a comment
+at the top the respective <code>requirements*.txt</code> file, i.e.:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>(venv)$ <strong>python3 -m pip install pip-tools</strong>
-
-(venv)$ <strong>pip-compile</strong>
-or/and
+<pre>(venv)$ <strong>pip-compile --generate-hashes</strong>
 (venv)$ <strong>pip-compile requirements-dev.in</strong>
-or/and
 (venv)$ <strong>pip-compile requirements-build.in</strong></pre>
 </div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><code>pip-compile</code> automatically adds a comment to the beginning of the generated <code>.txt</code> files containing literally this information:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="txt">#
-# This file is autogenerated by pip-compile with python 3.…
-# To update, run:
-#
-#    pip-compile requirements-….in
-#</code></pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -919,22 +678,22 @@ as seen in the Examples below:</p>
 <div class="listingblock">
 <div class="content">
 <pre># use default python 3 of system
-$ *tox -e py3*
+$ <strong>tox -e py3</strong>
 
 # use a specified version of python
-$ *tox -e py37*
+$ <strong>tox -e py37</strong>
 
 # implicitly use default python 3 of system, ensuring the use of some fixed old pip version
-$ *tox -e pipprevious*
+$ <strong>tox -e pipprevious</strong>
 
 # implicitly use default python 3 of system, ensuring the use of latest published and accessible version of pip
-$ *tox -e piplatest*
+$ <strong>tox -e piplatest</strong>
 
 # implicitly use default python 3 of system, ensuring the use of latest devel version of pip
-$ *tox -e pipmain*
+$ <strong>tox -e pipmain</strong>
 
 # mix and match the above
-$ *tox -e py37-piplatest*</pre>
+$ <strong>tox -e py37-piplatest</strong></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1269,7 +1028,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-08 08:31:22 UTC
+Last updated 2022-08-08 15:34:26 UTC
 </div>
 </div>
 </body>

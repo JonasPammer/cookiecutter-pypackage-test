@@ -92,6 +92,12 @@ re-run the install command (e.g. to register new cli scripts).
 
 ### ℹ️ Updating pinned dependencies
 
+When you change the dependencies of the pypackage (in `setup.cfg`) or
+change one of the `requirements*.in` files you must run the appropriate
+commands to regenerate their `*.txt` counterparts. The command to run is
+denoted in form of a comment at the top the respective
+`requirements*.txt` file, i.e.:
+
     (venv)$ pip-compile --generate-hashes
     (venv)$ pip-compile requirements-dev.in
     (venv)$ pip-compile requirements-build.in

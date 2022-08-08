@@ -28,7 +28,7 @@ Installing the package locally from live source itself can be done using the fol
 [subs="+quotes,attributes"]
 ----
 # "optional": ensure it actually works by using previously-pinned versions
-(venv)$ *python3 -m pip install -r requirements.txt* --require-hashes
+(venv)$ *python3 -m pip install -r requirements.txt*
 
 # install package from path in develop mode
 (venv)$ *python3 -m pip install -e .*

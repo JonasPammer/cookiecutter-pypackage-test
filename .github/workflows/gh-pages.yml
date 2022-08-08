@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
 
       - name: setup ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@6148f408d35df04b0189be5e64c1458377b8ae13 # tag=v1
         with:
           ruby-version: "2.7.0"
 
@@ -42,7 +42,7 @@ jobs:
         run: asciidoctor -b docbook README.adoc
 
       - name: Generate README.md from README.xml using pandoc
-        uses: docker://pandoc/core:2.19
+        uses: docker://pandoc/core@sha256:65d98a5fb89867961479c16f4597134517923661aca23ef63843f6b6e623508b # tag=v2.19
         with:
           args: "-f docbook -t markdown_strict README.xml -o README.md"
 

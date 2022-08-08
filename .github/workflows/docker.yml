@@ -25,6 +25,9 @@ name: Docker Image Scan / Build / README
       - "main"
       - "master"
 
+permissions:
+  contents: read
+
 jobs:
   trivy-security:
     runs-on: ubuntu-latest
@@ -115,9 +118,9 @@ jobs:
         uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94 # tag=v3
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          push: "${{ github.event_name != 'pull_request' }}"
+          tags: "${{ steps.meta.outputs.tags }}"
+          labels: "${{ steps.meta.outputs.labels }}"
 
   dockerhub-readme:
     if: github.event_name != 'pull_request'

@@ -1,14 +1,17 @@
----
 name: build self-contained READMEs
-permissions:
-  pages: write
-  contents: write
+
 "on":
   push:
+
+permissions:
+  contents: read
 
 jobs:
   gh-pages:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
     steps:
       - name: check out the codebase
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -27,7 +30,7 @@ jobs:
         uses: actions/cache@f4278025ab0f432ce369118909e46deec636f50c # tag=v3
         with:
           path: ~/.cache/pre-commit
-          key: ${{ hashFiles('.pre-commit-config.yaml') }}
+          key: "${{ hashFiles('.pre-commit-config.yaml') }}"
 
       - name: install asciidoctor and other relevant ruby gems
         run: gem install --no-document asciidoctor asciidoctor-reducer rouge coderay
@@ -61,7 +64,7 @@ jobs:
       - name: Deploy HTML to GitHub Pages (when branch is master).
         uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # tag=v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
           publish_branch: gh-pages
           publish_dir: ./docs/
         if: github.ref == 'refs/heads/master'

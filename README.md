@@ -1,9 +1,9 @@
 [![CI
 Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml/badge.svg)](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml)
+[![CodeQL
+Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/codeql-analysis.yml)
 ![Python
 Versions](https://img.shields.io/pypi/pyversions/test_application.svg)
-[![project analyzed with openssf scorecard
-project](https://img.shields.io/badge/repo_security_checked_by-openssf_scorecard-lightgreen.svg?style=flat-square)](https://github.com/JonasPammer/cookiecutter-pypackage-test/security/code-scanning)
 
 A Python Package to do random stuff.
 

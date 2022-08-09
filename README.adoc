@@ -8,9 +8,9 @@ Jonas Pammer <opensource@jonaspammer.at>;
 
 // Very Relevant Status Badges
 https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml/badge.svg[CI Status]]
+https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/codeql-analysis.yml[image:https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/codeql-analysis.yml/badge.svg[CodeQL Status]]
 image:https://img.shields.io/pypi/pyversions/test_application.svg[Python Versions]
-// Replace with real one once https://github.com/ossf/scorecard/issues/271 is implemented
-https://github.com/JonasPammer/cookiecutter-pypackage-test/security/code-scanning[image:https://img.shields.io/badge/repo_security_checked_by-openssf_scorecard-lightgreen.svg?style=flat-square[project analyzed with openssf scorecard project]]
+
 
 A Python Package to do random stuff.
 

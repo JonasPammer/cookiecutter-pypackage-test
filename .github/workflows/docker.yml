@@ -154,3 +154,4 @@ jobs:
           username: "jonaspammer"
           password: "${{ secrets.DOCKERHUB_PASSWORD }}"
           repository: "jonaspammer/cookiecutter-pypackage-test"
+          short-description: ${{ github.event.repository.description }}

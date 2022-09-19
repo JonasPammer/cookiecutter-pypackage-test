@@ -6,6 +6,8 @@ ifdef::env-github[]
 https://hub.docker.com/repository/docker/jonaspammer/cookiecutter-pypackage-test[image:https://img.shields.io/badge/Link_to-Docker_Hub-blue[]]
 endif::[]
 
+some alternative dockerhub readme stuff
+
 This image can be used to run
 https://github.com/JonasPammer/cookiecutter-pypackage-test[cookiecutter-pypackage-test].
 

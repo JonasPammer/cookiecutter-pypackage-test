@@ -14,6 +14,7 @@ name: Docker Image Scan / Build / README
       - ".dockerignore"
       - "Dockerfile"
       - "docker_smoke_test.py"
+      - "README_DOCKER.adoc"
       # as per .dockerignore:
       - "requirements.txt"
       - "setup.cfg"
@@ -50,7 +51,7 @@ jobs:
           tags: "jonaspammer/cookiecutter-pypackage-test:local"
 
       - name: Run Trivy vulnerability scanner on built Image.
-        uses: aquasecurity/trivy-action@cb606dfdb0d2b3698ace62192088ef4f5360b24f # tag=0.6.2
+        uses: aquasecurity/trivy-action@d63413b0a4a4482237085319f7f4a1ce99a8f2ac # tag=0.7.1
         with:
           image-ref: "jonaspammer/cookiecutter-pypackage-test:local"
           format: table
@@ -123,7 +124,7 @@ jobs:
           labels: "${{ steps.meta.outputs.labels }}"
 
   dockerhub-readme:
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: dockerhub
     runs-on: ubuntu-latest
     steps:

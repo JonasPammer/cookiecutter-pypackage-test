@@ -116,7 +116,7 @@ jobs:
         run: .tox/pip${{ matrix.pip-version }}/${{ matrix.os == 'Windows' && 'Scripts' || 'bin' }}/coverage xml -o coverage.xml
 
       - name: Upload coverage to Codecov and add Pull Request comment
-        uses: codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378 # tag=v3
+        uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70 # tag=v3
         with:
           file: ./coverage.xml
           name: "${{ runner.os }}-${{ matrix.python-version }}-${{ matrix.pip-version }}"

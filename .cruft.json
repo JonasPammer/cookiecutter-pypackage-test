@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/JonasPammer/cookiecutter-pypackage.git",
-  "commit": "860f453e2c0fe01091dc66b9b7870b3965ce2e53",
+  "commit": "4f3980a6c68cadb2c1c3edb9a1645fdf907c8c53",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -9,6 +9,7 @@
       "github_username": "JonasPammer",
       "code_of_conduct_enforcement_contact_email": "opensource@jonaspammer.at",
       "open_source_license": "MIT License",
+      "use_renovate": "y",
       "project_name": "CookieCutter Python Package Test",
       "project_slug": "cookiecutter-pypackage-test",
       "pkg_name": "test_application",

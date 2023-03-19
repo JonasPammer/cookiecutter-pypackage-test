@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM python:3.10-slim-bullseye@sha256:c35f011718a64510d819052464072753cfe20eb9b19e34c0f10cba04f6d1c9f8
+FROM python:3.11-slim-bullseye
 LABEL maintainer="opensource@jonaspammer.at"
 LABEL org.opencontainers.source="https://github.com/JonasPammer/cookiecutter-pypackage-test"
 
@@ -32,7 +32,7 @@ ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
 RUN apt-get -qy update \
     && apt-get -qqy install --no-install-recommends python3-wheel \
     && python3 -m pip install --no-cache-dir --upgrade pip \
-    && python3 -m pip install --no-cache-dir wheel \
+    && python3 -m pip install --no-cache-dir --upgrade setuptools wheel \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN chown -R "${DOCKER_APP_USER}:${DOCKER_APP_USER}" /app

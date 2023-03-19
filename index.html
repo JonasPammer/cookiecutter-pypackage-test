@@ -657,9 +657,9 @@ at the top the respective <code>requirements*.txt</code> file, i.e.:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>(venv)$ <strong>pip-compile --generate-hashes</strong>
-(venv)$ <strong>pip-compile requirements-dev.in</strong>
-(venv)$ <strong>pip-compile requirements-build.in</strong></pre>
+<pre>(venv)$ <strong>pip-compile --resolver=backtracking --generate-hashes</strong>
+(venv)$ <strong>pip-compile --resolver=backtracking requirements-dev.in</strong>
+(venv)$ <strong>pip-compile --resolver=backtracking requirements-build.in</strong></pre>
 </div>
 </div>
 </div>
@@ -1028,7 +1028,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-19 13:13:08 UTC
+Last updated 2023-03-19 19:52:10 UTC
 </div>
 </div>
 </body>

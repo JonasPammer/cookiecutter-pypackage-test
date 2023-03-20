@@ -99,7 +99,8 @@ repos:
   #   some third-party plugins
   # …to check the style and quality of python code.
   - repo: https://github.com/pycqa/flake8
-    rev: "6.0.0"
+    # 6.0.0 requires python >=3.8, while this project's min. is 3.7
+    rev: "5.0.4"
     hooks:
       - id: flake8
 

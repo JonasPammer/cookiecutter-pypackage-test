@@ -14,20 +14,20 @@ jobs:
       pages: write
     steps:
       - name: check out the codebase
-        uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3
+        uses: actions/checkout@v3
 
       - name: setup ruby
-        uses: ruby/setup-ruby@6148f408d35df04b0189be5e64c1458377b8ae13 # tag=v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: "2.7.0"
 
       - name: set up python 3
-        uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+        uses: actions/setup-python@4
         with:
           python-version: "3.x"
 
       - name: setup/activate pre-commit cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pre-commit
           key: "${{ hashFiles('.pre-commit-config.yaml') }}"
@@ -42,7 +42,7 @@ jobs:
         run: asciidoctor -b docbook README.adoc
 
       - name: Generate README.md from README.xml using pandoc
-        uses: docker://pandoc/core@sha256:222badaf55d35aa19a54294721b2669a55737e8a96e78f038b89c2b70bccd13f
+        uses: docker://pandoc/core@3.1
         with:
           args: "-f docbook -t markdown_strict README.xml -o README.md --wrap=none"
 
@@ -52,7 +52,7 @@ jobs:
           pre-commit run --files README.md || true
 
       - name: Commit generated READMEs.
-        uses: stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a # v4
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "docs: reduce README.orig.adoc \n ${{ github.event.head_commit.message }}"
           file_pattern: README.adoc README.md
@@ -62,7 +62,7 @@ jobs:
         run: asciidoctor --backend=html5 --destination-dir docs --out-file index.html README.adoc
 
       - name: Deploy HTML to GitHub Pages (when branch is master).
-        uses: peaceiris/actions-gh-pages@bd8c6b06eba6b3d25d72b7a1767993c0aeee42e7 # v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           publish_branch: gh-pages

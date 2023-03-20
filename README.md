@@ -1,6 +1,6 @@
 [![CI Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml/badge.svg)](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/ci.yml) [![CodeQL Status](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/codeql-analysis.yml) ![Python Versions](https://img.shields.io/pypi/pyversions/test_application.svg)
 
-A Python Package to do random stuff.
+This project is just an example showcase of my <https://github.com/JonasPammer/cookiecutter-pypackage> project.
 
 # Features
 

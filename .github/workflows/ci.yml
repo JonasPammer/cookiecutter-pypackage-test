@@ -77,7 +77,7 @@ jobs:
 
       - name: set up python ${{ matrix.python-version }} using deadsnakes's action
         if: endsWith(matrix.python-version, '-dev')
-        uses: deadsnakes/action@7ab8819e223c70d2bdedd692dfcea75824e0a617 # tag=v2.1.1
+        uses: deadsnakes/action@e3117c2981fd8afe4af79f3e1be80066c82b70f5 # v3.0.0
         with:
           python-version: "${{ matrix.python-version }}"
 

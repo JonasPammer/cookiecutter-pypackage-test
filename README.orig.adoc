@@ -20,7 +20,7 @@ https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/cod
 image:https://img.shields.io/pypi/pyversions/test_application.svg[Python Versions]
 
 
-A Python Package to do random stuff.
+This project is just an example showcase of my https://github.com/JonasPammer/cookiecutter-pypackage project.
 
 
 toc::[]

@@ -144,7 +144,7 @@ jobs:
 
       # https://github.com/pandoc/pandoc-action-example
       - name: Convert README_DOCKER.xml to README.md using Pandoc.
-        uses: docker://pandoc/core@sha256:3.1
+        uses: docker://pandoc/core@sha256:222badaf55d35aa19a54294721b2669a55737e8a96e78f038b89c2b70bccd13f
         with:
           args: "-f docbook -t markdown_strict README_DOCKER.xml -o README.md"
 

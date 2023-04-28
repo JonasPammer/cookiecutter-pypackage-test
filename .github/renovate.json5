@@ -27,6 +27,7 @@
   stabilityDays: 7,
   commitMessageTopic: "{{manager}} dependency {{depName}}",
   labels: ["kind/dependencies"],
+  ignorePaths: ["requirements*.txt", "setup.cfg"],
   packageRules: [
     {
       matchPackagePatterns: ["eslint"],

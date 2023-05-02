@@ -13,6 +13,7 @@ jobs:
       contents: write
       pages: write
     steps:
+      ### Setup
       - name: check out the codebase
         uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3
 
@@ -35,6 +36,14 @@ jobs:
       - name: install asciidoctor and other relevant ruby gems
         run: gem install --no-document asciidoctor asciidoctor-reducer rouge coderay
 
+      - name: get first line of commit message as variable
+        shell: bash
+        run: |
+          echo "FIRST_LINE_OF_HEAD_COMMIT_MESSAGE=${HEAD_COMMIT_MESSAGE}" | head -1 >> $GITHUB_ENV
+        env:
+          HEAD_COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
+
+      ### README.orig.adoc & co.
       - name: Generate README.adoc using ascidoctor-reducer.
         run: asciidoctor-reducer README.orig.adoc -o README.adoc
 
@@ -46,18 +55,30 @@ jobs:
         with:
           args: "-f docbook -t markdown_strict README.xml -o README.md --wrap=none"
 
-      - name: pre-commit README.md
+      ### SECURITY.adoc
+      - name: generate SECURITY.xml from SECURITY.adoc using ascidoctor
+        run: asciidoctor -b docbook SECURITY.adoc
+
+      - name: Generate SECURITY.md from SECURITY.xml using pandoc
+        uses: docker://pandoc/core:3.1
+        with:
+          args: "-f docbook -t markdown_strict SECURITY.xml -o SECURITY.md --wrap=none"
+
+      ### Commit
+      - name: pre-commit generated .md files
         run: |
           python3 -m pip install pre-commit
-          pre-commit run --files README.md || true
+          pre-commit run --files README.md SECURITY.md || true
+          pre-commit run --files README.md SECURITY.md || true
 
-      - name: Commit generated READMEs.
+      - name: Commit generated files.
         uses: stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a # v4
         with:
           commit_message: "docs: reduce README.orig.adoc \n ${{ github.event.head_commit.message }}"
-          file_pattern: README.adoc README.md
+          file_pattern: README.adoc README.md SECURITY.md
           disable_globbing: true
 
+      ### Deploy README.adoc
       - name: Generate HTML
         run: asciidoctor --backend=html5 --destination-dir docs --out-file index.html README.adoc
 

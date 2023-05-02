@@ -25,6 +25,8 @@
     enabled: true,
   },
   minimumReleaseAge: "7 days",
+  // https://github.com/JonasPammer/ansible-roles/issues/46
+  ignorePaths: ["requirements*.txt", "setup.cfg"],
   commitMessageTopic: "{{manager}} dependency {{depName}}",
   labels: ["kind/dependencies"],
   ignorePaths: ["requirements*.txt", "setup.cfg"],

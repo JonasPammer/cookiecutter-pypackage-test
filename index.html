@@ -463,7 +463,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_system_requirements">System Requirements</a></li>
 <li><a href="#_installing">Installing</a></li>
 <li><a href="#_usage">Usage</a></li>
-<li><a href="#_extra_run_using_docker">Extra: Run using Docker</a></li>
+<li><a href="#_extra_run_using_docker">🐳 Extra: Run using Docker</a></li>
+<li><a href="#security">🛃 Security Policy</a>
+<ul class="sectlevel2">
+<li><a href="#_ℹ️_supported_versions">ℹ️ Supported Versions</a></li>
+<li><a href="#_reporting_a_vulnerability">🔥 Reporting a Vulnerability</a></li>
+</ul>
+</li>
 <li><a href="#development">📝 Development</a>
 <ul class="sectlevel2">
 <li><a href="#development-system-dependencies">📌 Development Machine Dependencies</a></li>
@@ -555,7 +561,7 @@ without worrying about any virtualenv magic:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_extra_run_using_docker">Extra: Run using Docker</h2>
+<h2 id="_extra_run_using_docker">🐳 Extra: Run using Docker</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml"><span class="image"><img src="https://github.com/JonasPammer/cookiecutter-pypackage-test/actions/workflows/docker.yml/badge.svg" alt="Docker Workflow Status"></span></a></p>
@@ -565,6 +571,101 @@ without worrying about any virtualenv magic:</p>
 </div>
 <div class="paragraph">
 <p>Details in <a href="README_DOCKER.adoc">README_DOCKER</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="security">🛃 Security Policy</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ℹ️_supported_versions">ℹ️ Supported Versions</h3>
+<div class="paragraph">
+<p>The current major version is supported.
+<strong>For example</strong>, if the current version is 3.4.1:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Version</th>
+<th class="tableblock halign-left valign-top">Supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v3.4.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v3.4.x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v3.x.x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v2.x.x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v1.x.x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_reporting_a_vulnerability">🔥 Reporting a Vulnerability</h3>
+<div class="paragraph">
+<p>Please report (suspected) security vulnerabilities to
+<a href="mailto:opensource@jonaspammer.at?body=%23%23%20Severity%0D%0A_One%20of%20Low%2C%20Moderate%2C%20High%2C%20Critical%2C%20or%20%22Asses%20using%20Common%20Weakness%20Enumarator%20found%20in%20Reference%22_%0D%0A%0D%0A%0D%0A%23%23%20CVE%20Identifier%20(https%3A%2F%2Fcve.mitre.org%2Fcve%2Fsearch_cve_list.html)%0D%0ANone%0D%0A%0D%0A%0D%0A%23%23%20Description%0D%0A%0D%0A%0D%0A%0D%0A%23%23%20Reproduction%0D%0A_Step-by-step%20instructions%20to%20reproduce%20the%20issue%20%2F%20Proof-of-concept%20%2F%20Any%20special%20configuration%20needed%20to%20reproduce%20%2F%20Exploit%20Code_%0D%0A%0D%0A%0D%0A%0D%0A%23%23%20Impact%0D%0A_What%20kind%20of%20vulnerability%20is%20it%20(Injection%2C%20XSS%2C%20Overflow%2C%20&#8230;&#8203;)%3F%20Who%20is%20impacted%3F_%0D%0A%0D%0A%0D%0A%23%23%23%20Patches%0D%0A_Has%20the%20problem%20been%20patched%3F%20What%20versions%3F_%0D%0A%0D%0A%0D%0A%23%23%23%20Workarounds%0D%0A_Is%20there%20a%20way%20for%20the%20users%20to%20fix%20or%20remediate%20the%20vulnerability%20without%20upgrading%3F_%0D%0A%0D%0A%0D%0A%23%23%23%20References%0D%0A_Are%20there%20any%20links%20the%20developer%20or%20users%20can%20visit%20to%20find%20out%20more%3F_%0D%0A%0D%0A%0D%0A">opensource@jonaspammer.at</a>,
+preferably with a proof of concept.</p>
+</div>
+<div class="paragraph">
+<p>You may use the following template for your e-mail (text in underscores (<code>_</code>) is meant for guidance of filling out the form and can be removed):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>## Severity
+_One of Low, Moderate, High, Critical, or "Asses using Common Weakness Enumarator found in Reference"_
+
+
+## CVE Identifier (https://cve.mitre.org/cve/search_cve_list.html)
+None
+
+
+## Description
+
+
+
+## Reproduction
+_Step-by-step instructions to reproduce the issue / Proof-of-concept / Any special configuration needed to reproduce / Exploit Code_
+
+
+
+## Impact
+_What kind of vulnerability is it (Injection, XSS, Overflow, ...)? Who is impacted?_
+
+
+### Patches
+_Has the problem been patched? What versions?_
+
+
+### Workarounds
+_Is there a way for the users to fix or remediate the vulnerability without upgrading?_
+
+
+### References
+_Are there any links the developer or users can visit to find out more?_</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Non-vulnerability related security issues such as great new ideas for security features are welcome on GitHub Issues.</p>
+</div>
 </div>
 </div>
 </div>
@@ -736,7 +837,7 @@ $ <strong>bump2version major</strong></pre>
 <div class="paragraph">
 <p>This tool automatically updates the version string in the required files
 and creates a generic commit with a matching tag
-(as configured in <code>.bumpversion.cf</code>).</p>
+(as configured in <code>.bumpversion.cfg</code>).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1028,7 +1129,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-02 07:40:54 UTC
+Last updated 2023-05-02 09:09:25 UTC
 </div>
 </div>
 </body>

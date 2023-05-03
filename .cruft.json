@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/JonasPammer/cookiecutter-pypackage.git",
-  "commit": "8aef3bc94bd5b467fe01ab11a99a7019e158b8d7",
+  "commit": "6b07e88f848fcadbf198f587118268e2d94fe7df",
   "checkout": null,
   "context": {
     "cookiecutter": {

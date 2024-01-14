@@ -36,7 +36,7 @@ ENV VIRTUAL_ENV=${VIRTUAL_ENV}
 RUN python3 -m venv "${VIRTUAL_ENV}"
 ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
 
-RUN ; \
+RUN \
     && python3 -m pip install --no-cache-dir --upgrade pip \
     && python3 -m pip install --no-cache-dir --upgrade setuptools \
     && python3 -m pip install --no-cache-dir --upgrade wheel

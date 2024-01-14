@@ -7,6 +7,7 @@ ARG DOCKER_APP_USER=secureappuser
 ARG VIRTUAL_ENV=/app/venv
 
 ### General Python Debian Docker Best-Practice Preperation Steps ###
+
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
@@ -20,7 +21,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 RUN apt-get -qy update \
     && apt-get -qqy install --no-install-recommends python3-wheel \
     && python3 -m pip install --no-cache-dir --upgrade pip \
-    && python3 -m pip install --no-cache-dir --upgrade setuptools wheel \
+    && python3 -m pip install --no-cache-dir --upgrade setuptools \
+    && python3 -m pip install --no-cache-dir --upgrade wheel \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user for security purposes
@@ -34,11 +36,16 @@ ENV VIRTUAL_ENV=${VIRTUAL_ENV}
 RUN python3 -m venv "${VIRTUAL_ENV}"
 ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
 
+RUN ; \
+    && python3 -m pip install --no-cache-dir --upgrade pip \
+    && python3 -m pip install --no-cache-dir --upgrade setuptools \
+    && python3 -m pip install --no-cache-dir --upgrade wheel
+
 RUN chown -R "${DOCKER_APP_USER}:${DOCKER_APP_USER}" /app
 USER ${DOCKER_APP_USER}
 
-
 ### Project-Specific Dockerfile Steps ###
+
 WORKDIR /app
 
 COPY --chown="${DOCKER_APP_USER}:${DOCKER_APP_USER}" requirements.txt .
@@ -49,8 +56,8 @@ COPY --chown="${DOCKER_APP_USER}:${DOCKER_APP_USER}" . .
 USER ${DOCKER_APP_USER}
 RUN python3 -m pip install .
 
-
 ### Configure Container Startup Configuration ###
+
 WORKDIR /app
 USER ${DOCKER_APP_USER}
 

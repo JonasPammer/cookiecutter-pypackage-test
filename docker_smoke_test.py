@@ -2,6 +2,7 @@
 
 https://pythonspeed.com/articles/test-your-docker-build/
 """
+
 from __future__ import annotations
 
 import sys
